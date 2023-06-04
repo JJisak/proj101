@@ -14,10 +14,19 @@ public class MealPlannerController {
 
     @GetMapping("/mealplanner/week")
     public ResponseEntity<WeekResponse> getWeekMeals(
-            @RequestParam("numCalories") String numCalories,
-            @RequestParam("diet") String diet,
-            @RequestParam("exclusions") String exclusions) {
+            @RequestParam(value = "numCalories", required = false) String numCalories,
+            @RequestParam(value = "diet", required = false) String diet,
+            @RequestParam(value = "exclusions", required = false) String exclusions) {
 
+        if (numCalories == null) {
+            numCalories = ""; // Set default value or handle the null case accordingly
+        }
+        if (diet == null) {
+            diet = ""; // Set default value or handle the null case accordingly
+        }
+        if (exclusions == null) {
+            exclusions = ""; // Set default value or handle the null case accordingly
+        }
         String url = SPOONACULAR_API_URL + "generate?apiKey=" + SPOONACULAR_API_KEY +
                 "&timeFrame=week&targetCalories=" + numCalories +
                 "&diet=" + diet + "&exclude=" + exclusions;
@@ -28,11 +37,21 @@ public class MealPlannerController {
         return new ResponseEntity<>(weekResponse, HttpStatus.OK);
     }
 
-    @GetMapping("/mealplanner/day")
+      @GetMapping("/mealplanner/day")
     public ResponseEntity<DayResponse> getDayMeals(
-            @RequestParam("numCalories") String numCalories,
-            @RequestParam("diet") String diet,
-            @RequestParam("exclusions") String exclusions) {
+            @RequestParam(value = "numCalories", required = false) String numCalories,
+            @RequestParam(value = "diet", required = false) String diet,
+            @RequestParam(value = "exclusions", required = false) String exclusions) {
+
+        if (numCalories == null) {
+            numCalories = ""; // Set default value or handle the null case accordingly
+        }
+        if (diet == null) {
+            diet = ""; // Set default value or handle the null case accordingly
+        }
+        if (exclusions == null) {
+            exclusions = ""; // Set default value or handle the null case accordingly
+        }
 
         String url = SPOONACULAR_API_URL + "generate?apiKey=" + SPOONACULAR_API_KEY +
                 "&timeFrame=day&targetCalories=" + numCalories +
