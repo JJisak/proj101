@@ -19,14 +19,15 @@ public class MealPlannerController {
             @RequestParam(value = "exclusions", required = false) String exclusions) {
 
         if (numCalories == null) {
-            numCalories = ""; // Set default value or handle the null case accordingly
+            numCalories = "2000";
         }
         if (diet == null) {
-            diet = ""; // Set default value or handle the null case accordingly
+            diet = "none";
         }
         if (exclusions == null) {
-            exclusions = ""; // Set default value or handle the null case accordingly
+            exclusions = "";
         }
+
         String url = SPOONACULAR_API_URL + "generate?apiKey=" + SPOONACULAR_API_KEY +
                 "&timeFrame=week&targetCalories=" + numCalories +
                 "&diet=" + diet + "&exclude=" + exclusions;
@@ -37,20 +38,20 @@ public class MealPlannerController {
         return new ResponseEntity<>(weekResponse, HttpStatus.OK);
     }
 
-      @GetMapping("/mealplanner/day")
+    @GetMapping("/mealplanner/day")
     public ResponseEntity<DayResponse> getDayMeals(
             @RequestParam(value = "numCalories", required = false) String numCalories,
             @RequestParam(value = "diet", required = false) String diet,
             @RequestParam(value = "exclusions", required = false) String exclusions) {
 
         if (numCalories == null) {
-            numCalories = ""; // Set default value or handle the null case accordingly
+            numCalories = "2000";
         }
         if (diet == null) {
-            diet = ""; // Set default value or handle the null case accordingly
+            diet = "none";
         }
         if (exclusions == null) {
-            exclusions = ""; // Set default value or handle the null case accordingly
+            exclusions = "";
         }
 
         String url = SPOONACULAR_API_URL + "generate?apiKey=" + SPOONACULAR_API_KEY +
