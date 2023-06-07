@@ -3,14 +3,14 @@ package com.example.proj101;
 import java.util.List;
 
 public class WeekResponse {
-    private List<Day> items;
+    private Week week;
 
-    public List<Day> getItems() {
-        return items;
+    public Week getWeek() {
+        return week;
     }
 
-    public void setItems(List<Day> items) {
-        this.items = items;
+    public void setWeek(Week week) {
+        this.week = week;
     }
 }
 
@@ -35,7 +35,94 @@ public class WeekResponse {
     }
 }
 
- class Nutrients {
+class Week {
+    private Day monday;
+    private Day tuesday;
+    private Day wednesday;
+    private Day thursday;
+    private Day friday;
+    private Day saturday;
+    private Day sunday;
+
+    public Day getMonday() {
+        return monday;
+    }
+
+    public void setMonday(Day monday) {
+        this.monday = monday;
+    }
+
+    public Day getTuesday() {
+        return tuesday;
+    }
+
+    public void setTuesday(Day tuesday) {
+        this.tuesday = tuesday;
+    }
+
+    public Day getWednesday() {
+        return wednesday;
+    }
+
+    public void setWednesday(Day wednesday) {
+        this.wednesday = wednesday;
+    }
+
+    public Day getThursday() {
+        return thursday;
+    }
+
+    public void setThursday(Day thursday) {
+        this.thursday = thursday;
+    }
+
+    public Day getFriday() {
+        return friday;
+    }
+
+    public void setFriday(Day friday) {
+        this.friday = friday;
+    }
+
+    public Day getSaturday() {
+        return saturday;
+    }
+
+    public void setSaturday(Day saturday) {
+        this.saturday = saturday;
+    }
+
+    public Day getSunday() {
+        return sunday;
+    }
+
+    public void setSunday(Day sunday) {
+        this.sunday = sunday;
+    }
+}
+
+class Day {
+    private List<Meal> meals;
+    private Nutrients nutrients;
+
+    public List<Meal> getMeals() {
+        return meals;
+    }
+
+    public void setMeals(List<Meal> meals) {
+        this.meals = meals;
+    }
+
+    public Nutrients getNutrients() {
+        return nutrients;
+    }
+
+    public void setNutrients(Nutrients nutrients) {
+        this.nutrients = nutrients;
+    }
+}
+
+class Nutrients {
     private double calories;
     private double carbohydrates;
     private double fat;
@@ -74,21 +161,9 @@ public class WeekResponse {
     }
 }
 
-class Day {
-    private List<Meal> meals;
-
-    public List<Meal> getMeals() {
-        return meals;
-    }
-
-    public void setMeals(List<Meal> meals) {
-        this.meals = meals;
-    }
-}
-
 class Meal {
     private String title;
-    private String image;
+    private String imageType;
     private String sourceUrl;
 
     public String getTitle() {
@@ -99,12 +174,12 @@ class Meal {
         this.title = title;
     }
 
-    public String getImage() {
-        return image;
+    public String getImageType() {
+        return imageType;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImageType(String imageType) {
+        this.imageType = imageType;
     }
 
     public String getSourceUrl() {
@@ -114,4 +189,7 @@ class Meal {
     public void setSourceUrl(String sourceUrl) {
         this.sourceUrl = sourceUrl;
     }
+
+
+
 }
