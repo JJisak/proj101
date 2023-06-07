@@ -40,23 +40,14 @@ public class MealPlannerController {
 
     @GetMapping("/mealplanner/day")
     public ResponseEntity<DayResponse> getDayMeals(
-            @RequestParam(value = "numCalories", required = false) String numCalories,
-            @RequestParam(value = "diet", required = false) String diet,
-            @RequestParam(value = "exclusions", required = false) String exclusions) {
+            @RequestParam(value = "numCalories", required = false) String numCalories) {
 
         if (numCalories == null) {
             numCalories = "2000";
         }
-        if (diet == null) {
-            diet = "none";
-        }
-        if (exclusions == null) {
-            exclusions = "";
-        }
 
         String url = SPOONACULAR_API_URL + "generate?apiKey=" + SPOONACULAR_API_KEY +
-                "&timeFrame=day&targetCalories=" + numCalories +
-                "&diet=" + diet + "&exclude=" + exclusions;
+                "&timeFrame=day&targetCalories=" + numCalories;
 
         RestTemplate restTemplate = new RestTemplate();
         DayResponse dayResponse = restTemplate.getForObject(url, DayResponse.class);
